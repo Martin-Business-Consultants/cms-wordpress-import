@@ -1,0 +1,29 @@
+<% @page_title = "Import from WordPress" %>
+
+<%= render "layouts/shared/page_header", title: @page_title %>
+
+<%# While it runs the page reloads itself (refresh), and stops once it's done. %>
+<%= tag.div class: "max-w-3xl space-y-6", data: ({ controller: "refresh", refresh_interval_value: 3 } if @run.running?) do %>
+  <section class="<%= ui(:panel, "space-y-4 p-6") %>">
+    <div class="flex flex-wrap items-center gap-2">
+      <h2 class="<%= ui(:heading) %>"><%= @run.filename %></h2>
+      <%= status_tag @run.status %>
+    </div>
+    <% if @run.running? %>
+      <p class="text-sm text-gray-700">Importing. Images take the longest; this page checks every few seconds.</p>
+    <% end %>
+    <% if @run.counts.any? %>
+      <dl class="grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-3">
+        <% @run.counts.each do |name, count| %>
+          <%# herb:key name %>
+          <div><dt class="text-xs font-medium text-gray-500"><%= name.humanize %></dt><dd class="text-sm text-gray-900"><%= count %></dd></div>
+        <% end %>
+      </dl>
+    <% end %>
+    <% if @run.lines.any? %>
+      <pre class="<%= settings_code_classes("max-h-80 overflow-y-auto text-xs") %>"><code><%= @run.lines.join("\n") %></code></pre>
+    <% end %>
+  </section>
+
+  <p class="text-sm"><%= link_to "Import another file", wordpress_import_runs_path, class: ui(:link) %></p>
+<% end %>

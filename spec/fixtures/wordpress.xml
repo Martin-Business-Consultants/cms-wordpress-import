@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0"
+	xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:wp="http://wordpress.org/export/1.2/">
+<channel>
+	<title>Green Thumb</title>
+	<link>https://greenthumb.example</link>
+	<wp:wxr_version>1.2</wp:wxr_version>
+	<wp:base_site_url>https://greenthumb.example</wp:base_site_url>
+	<item>
+		<title><![CDATA[Garden bed]]></title>
+		<link>https://greenthumb.example/garden-bed/</link>
+		<wp:post_id>10</wp:post_id>
+		<wp:post_name><![CDATA[garden-bed]]></wp:post_name>
+		<wp:status><![CDATA[inherit]]></wp:status>
+		<wp:post_type><![CDATA[attachment]]></wp:post_type>
+		<wp:attachment_url><![CDATA[https://greenthumb.example/wp-content/uploads/2025/04/garden-bed.jpg]]></wp:attachment_url>
+		<wp:postmeta><wp:meta_key><![CDATA[_wp_attachment_image_alt]]></wp:meta_key><wp:meta_value><![CDATA[Raised beds in spring]]></wp:meta_value></wp:postmeta>
+	</item>
+	<item>
+		<title><![CDATA[Services]]></title>
+		<link>https://greenthumb.example/services/</link>
+		<content:encoded><![CDATA[<!-- wp:paragraph -->
+<p>What we do, season by season.</p>
+<!-- /wp:paragraph -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>2</wp:post_id>
+		<wp:post_date_gmt><![CDATA[2025-03-01 10:00:00]]></wp:post_date_gmt>
+		<wp:post_name><![CDATA[services]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>1</wp:menu_order>
+		<wp:post_type><![CDATA[page]]></wp:post_type>
+		<wp:postmeta><wp:meta_key><![CDATA[_yoast_wpseo_title]]></wp:meta_key><wp:meta_value><![CDATA[Garden services | Green Thumb]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key><![CDATA[_yoast_wpseo_metadesc]]></wp:meta_key><wp:meta_value><![CDATA[Design, planting and care.]]></wp:meta_value></wp:postmeta>
+	</item>
+	<item>
+		<title><![CDATA[Fall planting]]></title>
+		<link>https://greenthumb.example/services/fall-planting/</link>
+		<content:encoded><![CDATA[Bulbs go in before the frost.
+
+See <a href="https://greenthumb.example/2025/04/raised-beds/">our raised beds post</a>.
+<img src="https://greenthumb.example/wp-content/uploads/2025/04/garden-bed-300x200.jpg" alt="" />]]></content:encoded>
+		<wp:post_id>3</wp:post_id>
+		<wp:post_name><![CDATA[fall-planting]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_parent>2</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type><![CDATA[page]]></wp:post_type>
+	</item>
+	<item>
+		<title><![CDATA[Raised beds &amp; why they work]]></title>
+		<link>https://greenthumb.example/2025/04/raised-beds/</link>
+		<content:encoded><![CDATA[<p>Better drainage, warmer soil.</p>]]></content:encoded>
+		<excerpt:encoded><![CDATA[Why we build them.]]></excerpt:encoded>
+		<wp:post_id>20</wp:post_id>
+		<wp:post_date_gmt><![CDATA[2025-04-02 08:30:00]]></wp:post_date_gmt>
+		<wp:post_name><![CDATA[raised-beds]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_type><![CDATA[post]]></wp:post_type>
+		<category domain="category" nicename="how-to"><![CDATA[How-to]]></category>
+		<category domain="post_tag" nicename="soil"><![CDATA[soil]]></category>
+		<wp:postmeta><wp:meta_key><![CDATA[_thumbnail_id]]></wp:meta_key><wp:meta_value><![CDATA[10]]></wp:meta_value></wp:postmeta>
+	</item>
+	<item>
+		<title><![CDATA[Winter notes]]></title>
+		<link>https://greenthumb.example/?p=21</link>
+		<content:encoded><![CDATA[<p>Not ready.</p>]]></content:encoded>
+		<wp:post_id>21</wp:post_id>
+		<wp:post_name><![CDATA[]]></wp:post_name>
+		<wp:status><![CDATA[draft]]></wp:status>
+		<wp:post_type><![CDATA[post]]></wp:post_type>
+	</item>
+	<item>
+		<title><![CDATA[Old revision]]></title>
+		<wp:post_id>22</wp:post_id>
+		<wp:post_name><![CDATA[22-revision-v1]]></wp:post_name>
+		<wp:status><![CDATA[inherit]]></wp:status>
+		<wp:post_type><![CDATA[revision]]></wp:post_type>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,60 @@
+<% @page_title = "Import from WordPress" %>
+
+<%= render "layouts/shared/page_header", title: @page_title,
+      description: "Bring a WordPress site’s pages, posts and images over from its export file." %>
+
+<div class="max-w-3xl space-y-6">
+  <%= form_with url: wordpress_import_runs_path, multipart: true, class: "space-y-6" do |form| %>
+    <section class="<%= ui(:panel, "space-y-4 p-6") %>">
+      <div class="space-y-1">
+        <h2 class="<%= ui(:heading) %>">The export file</h2>
+        <p class="<%= ui(:help) %>">
+          In WordPress, Tools › Export, “All content”, then Download Export File: an <code>.xml</code> file. Pages
+          keep their hierarchy, posts become entries, and a page or post already here (by its slug) is updated.
+        </p>
+      </div>
+      <%= form.file_field :file, accept: ".xml,application/xml,text/xml", required: true, class: "block text-sm text-gray-700" %>
+    </section>
+
+    <section class="<%= ui(:panel, "space-y-4 p-6") %>">
+      <%= settings_field "Posts go into", hint: "A collection’s slug. One that doesn’t exist is made, with an excerpt, featured image, categories and tags." do %>
+        <%= form.text_field :collection, value: "posts", class: "w-full", list: "wordpress-import-collections", autocomplete: "off" %>
+        <datalist id="wordpress-import-collections">
+          <% @collections.each do |name, slug| %>
+            <%# herb:key slug %>
+            <option value="<%= slug %>"><%= name %></option>
+          <% end %>
+        </datalist>
+      <% end %>
+      <label class="flex items-start gap-2 text-sm text-gray-900">
+        <%= form.check_box :media, {checked: true}, "1", "0" %>
+        <span>Download the images and files into the media library (the <code>/wordpress</code> folder), and point the content at them.</span>
+      </label>
+      <label class="flex items-start gap-2 text-sm text-gray-900">
+        <%= form.check_box :redirects, {checked: true}, "1", "0" %>
+        <span>Redirect each old address that changes to the new one, so links and search results keep working.</span>
+      </label>
+      <label class="flex items-start gap-2 text-sm text-gray-900">
+        <%= form.check_box :drafts, {checked: true}, "1", "0" %>
+        <span>Bring drafts, pending and private pages and posts too, as drafts.</span>
+      </label>
+      <div><button type="submit" class="<%= ui(:button, :primary) %>">Import</button></div>
+    </section>
+  <% end %>
+
+  <% if @runs.any? %>
+    <section class="<%= ui(:panel, "space-y-3 p-6") %>">
+      <h2 class="<%= ui(:heading) %>">Imports</h2>
+      <ul class="divide-y divide-gray-100">
+        <% @runs.each do |run| %>
+          <%# herb:key run.id %>
+          <li class="flex flex-wrap items-center gap-2 py-2.5 text-sm">
+            <%= link_to run.filename, wordpress_import_run_path(run), class: "font-medium text-gray-900 hover:underline" %>
+            <%= status_tag run.status %>
+            <span class="text-xs text-gray-500"><%= time_ago_tag run.created_at %><% if run.requested_by %> · <%= run.requested_by.email %><% end %></span>
+          </li>
+        <% end %>
+      </ul>
+    </section>
+  <% end %>
+</div>
