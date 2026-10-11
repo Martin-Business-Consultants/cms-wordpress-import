@@ -21,13 +21,14 @@ module WordpressImport
 
     config.to_prepare do
       Cms::Plugins.register :wordpress_import, name: "WordPress Import", version: WordpressImport::VERSION,
-        author: "Martin Business Consultants", requires: ">= 1.12",
+        author: "Martin Business Consultants", requires: ">= 1.30",
         homepage: "https://github.com/Martin-Business-Consultants/cms-wordpress-import",
         description: "Bring a WordPress site over from its export file: pages with their hierarchy, posts into " \
                      "a collection, images into the media library, Yoast SEO, and redirects from the old addresses."
       Cms::Plugins.submenu :wordpress_import, :tools, label: "Import from WordPress", path: -> { wordpress_import_runs_path },
         capability: "wordpress_import:run"
       Cms::Plugins.permissions :wordpress_import, "WordPress Import", %w[wordpress_import:run]
+      Cms::Plugins.stylesheet :wordpress_import, "wordpress_import/wordpress_import"
     end
   end
 end

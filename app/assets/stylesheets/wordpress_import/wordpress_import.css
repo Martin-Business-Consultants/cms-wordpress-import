@@ -1,0 +1,45 @@
+/* WordPress Import (cms-wordpress-import): the import screens are drawn
+   with the admin's components (STYLE.md); what's the plugin's alone is
+   here, in the admin's tokens, so it follows Settings › Branding and the
+   dark theme. */
+@layer components {
+  /* An import in the list: its file, its status, when and by whom. */
+  .wordpress-import-run {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: var(--text-sm);
+    gap: var(--space-2);
+    padding-block: var(--space-2-5);
+  }
+
+  /* What an import brought over: a name over each count, two across, three
+     from 40rem. */
+  .wordpress-import-counts {
+    display: grid;
+    gap: var(--space-4) var(--space-6);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    @media (width >= 40rem) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    dt {
+      color: var(--gray-500);
+      font-size: var(--text-xs);
+      font-weight: var(--weight-medium);
+      line-height: var(--leading-xs);
+    }
+
+    dd {
+      color: var(--gray-900);
+      font-size: var(--text-sm);
+    }
+  }
+
+  /* An import's log, scrolling once it's long. */
+  .wordpress-import-log {
+    max-block-size: 20rem;
+    overflow-y: auto;
+  }
+}
